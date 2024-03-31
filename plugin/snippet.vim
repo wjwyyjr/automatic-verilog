@@ -2,7 +2,7 @@
 " Vim Plugin for Verilog Code Automactic Generation 
 " Author:         HonkW
 " Website:        https://honk.wang
-" Last Modified:  2024/04/01 01:10
+" Last Modified:  2024/04/01 01:28
 " File:           snippet.vim
 " Note:           Snippet function partly from zhangguo's vimscript,partly from load_template
 "------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ function s:AutoTemplate() "{{{2
     let tpl_lines = []
     for line in lines
         if line =~ '\$module_name'
-            let line = substitute(line,'\$module_name',substitute(matchstr(expand("%"),'\w\+'), '\(\w\+\)', '\u\1', 'g'),'')
+            let line = substitute(line,'\$module_name',substitute(matchstr(expand("%"),'\w\+'), '\(\w\+\)', '\U\1', 'g'),'')
         endif
         call add(tpl_lines,line)
     endfor
